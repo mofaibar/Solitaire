@@ -1,0 +1,11 @@
+version: '3'
+services:
+  solitaire-devops:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - HTTP_PORT=5000
+    ports:
+      - 8000:5000
+    image: solitaire-devops:testing/welcome
