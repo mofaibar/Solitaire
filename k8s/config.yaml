@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: welcome-config
+data:
+  APP_NAME: Welcome App
+  APP_VERSION: v1
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: welcome-secret
+type: Opaque
+data:
+  DB_USERNAME: <base64_encoded_value>
+  DB_PASSWORD: <base64_encoded_value>

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: welcome-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - solitaire.com
+      secretName: welcome-tls
+  rules:
+    - host: solitaire.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: welcome-service
+              servicePort: 8000
